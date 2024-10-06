@@ -22,7 +22,13 @@ class _ChatPageState extends State<ChatPage> {
         centerTitle: true,
       ),
       body: BlocConsumer<ChatBloc, ChatState>(
-        bloc: chatBloc,
+        class SubjectBloc extends Bloc<SubjectEvent, SubjectState> {
+          SubjectBloc() : super(SubjectInitial()) {
+            on<SubjectEvent>((event, emit) {
+              // TODO: implement event handler
+            });
+          }
+        }
         listener: (context, state) {
           // TODO: implement listener
         },

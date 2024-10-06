@@ -10,7 +10,6 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  ChatBloc chatBloc = ChatBloc();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +20,7 @@ class _ChatPageState extends State<ChatPage> {
             )),
         centerTitle: true,
       ),
-      body: BlocConsumer<ChatBloc, ChatState>(
-        bloc: chatBloc,
+      body: BlocConsumer<ChatBloc, >(
         listener: (context, state) {
           // TODO: implement listener
         },

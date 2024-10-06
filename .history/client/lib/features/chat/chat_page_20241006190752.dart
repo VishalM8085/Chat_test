@@ -1,6 +1,4 @@
-import 'package:client/features/chat/bloc/chat_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -10,7 +8,6 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  ChatBloc chatBloc = ChatBloc();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +18,7 @@ class _ChatPageState extends State<ChatPage> {
             )),
         centerTitle: true,
       ),
-      body: BlocConsumer<ChatBloc, ChatState>(
-        bloc: chatBloc,
+      body: BlocConsumer<SubjectBloc, SubjectState>(
         listener: (context, state) {
           // TODO: implement listener
         },

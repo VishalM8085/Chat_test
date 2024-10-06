@@ -22,7 +22,11 @@ class _ChatPageState extends State<ChatPage> {
         centerTitle: true,
       ),
       body: BlocConsumer<ChatBloc, ChatState>(
-        bloc: chatBloc,
+        BlocBuilder<SubjectBloc, SubjectState>(
+          builder: (context, state) {
+            return Container();
+          },
+        )
         listener: (context, state) {
           // TODO: implement listener
         },
