@@ -86,23 +86,6 @@ Stream<http.Response> getChatGptResponse(
 // yield* mappedStream;
 // Purpose: This line yields each response from the mappedStream to the caller of the Stream function.
 // Usage: The yield* operator allows you to yield all the elements from another stream, making it possible to emit multiple responses one after the other.
-
 // response.stream.transform(Utf8Decoder())
 // If you were to return the raw stream or the transformed data directly (e.g., the result of response.stream.transform(Utf8Decoder())), you would be returning a stream of strings instead of a stream of http.Response objects.
 //This would limit what you can do with the data later on since the calling code would have to deal with strings instead of fully formed response objects.
-
-// response.stream.transform(Utf8Decoder()).map((jsonData) {
-    // return http.Response(jsonData, response.statusCode,
-    //     headers: response.headers);
-// Detailed Breakdown
-// Stream of Raw Bytes:
-
-// When you receive a response from an HTTP request, the body of the response is typically in the form of raw bytes. This is what response.stream contains initially.
-// Transforming Bytes to Strings:
-
-// The transform(Utf8Decoder()) function converts these raw bytes into strings, using UTF-8 encoding. This transformation allows you to work with the data in a human-readable format (e.g., JSON).
-// Mapping Each String to http.Response:
-
-// The map((jsonData) { ... }) function is where you define how to handle each of these strings. Here’s what happens:
-// Each string produced by the Utf8Decoder is passed to the callback function, where it is represented by the variable jsonData.
-// Inside the callback, you create an http.Response object using this string as the body of the response.
