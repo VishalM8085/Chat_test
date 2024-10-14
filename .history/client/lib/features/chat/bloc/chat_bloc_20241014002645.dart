@@ -33,10 +33,11 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       cachedMessage.add(ChatMessageModel(role: 'assistant', content: ""));
       _subscription?.cancel();
       _subscription = getChatGptResponseRepo(cachedMessage).listen((response) {
+        print(response.toString());
         for (String line in response.body.split('\n')) {
           String jsonDataString = line.replaceFirst("data: ", "");
           Map<String, dynamic> data = jsonDecode(jsonDataString.trim());
-
+          //print(data.toString());
           add(ChatNewContentGeneratedEvent(content: data['data']));
         }
       });
@@ -52,11 +53,11 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     String content = event.content;
     cachedMessage.last = ChatMessageModel(
         role: 'assistant', content: modelMessage.content + content);
-    
+    print(cachedMessage.last.content);
     emit(ChatNewMessageGeneratedState());
   }
 }
-// Creating a new instance of ChatMessageModel each time and replacing the last element in cachedMessage ensures that the change is explicit and avoids unintended side effects that could occur with direct mutation.
+// 
 
 
 // 3. part 'chat_event.dart';

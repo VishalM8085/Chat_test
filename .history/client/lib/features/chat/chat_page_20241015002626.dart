@@ -62,10 +62,7 @@ class _ChatPageState extends State<ChatPage> {
                               : Container(
                                   height: 32,
                                   width: 32,
-                                  child: SvgPicture.asset(
-                                    "assets/randomperson.svg",
-                                    fit: BoxFit.cover,
-                                  ),
+                                  
                                 ),
                           const SizedBox(width: 20),
                           Expanded(
@@ -171,23 +168,16 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Widget promptContainer(String text) {
-    return InkWell(
-      onTap: () {
-        if(controller.text.isEmpty) {
-          controller.text = text;
-        }
-      },
-      child: Container(
-        margin: const EdgeInsets.only(right: 8),
-        width: 200,
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.white.withOpacity(0.5), width: 1.0),
-          color: Colors.white.withOpacity(0.05),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Text(text),
+    return Container(
+      margin: const EdgeInsets.only(right: 8),
+      width: 200,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.white.withOpacity(0.5), width: 1.0),
+        color: Colors.white.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(8),
       ),
+      child: Text(text),
     );
   }
 }

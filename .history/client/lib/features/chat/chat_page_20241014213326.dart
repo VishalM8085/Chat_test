@@ -1,8 +1,6 @@
-import 'package:client/design/app_colors.dart';
 import 'package:client/features/chat/bloc/chat_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -33,54 +31,11 @@ class _ChatPageState extends State<ChatPage> {
           return Container(
             child: Column(
               children: [
-                Expanded(
-                    child: ListView.builder(
-                  padding: const EdgeInsets.only(top: 12),
-                  itemCount: chatBloc.cachedMessage.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                          color:
-                              chatBloc.cachedMessage[index].role == 'assistant'
-                                  ? AppColors.messageBgColor
-                                  : Colors.transparent),
-                      margin: const EdgeInsets.only(bottom: 8),
-                      padding: const EdgeInsets.only(
-                          left: 16, right: 16, bottom: 8, top: 8),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          chatBloc.cachedMessage[index].role == 'assistant'
-                              ? Container(
-                                  height: 32,
-                                  width: 32,
-                                  child: SvgPicture.asset(
-                                    "assets/chatgpt.svg",
-                                    fit: BoxFit.cover,
-                                  ),
-                                )
-                              : Container(
-                                  height: 32,
-                                  width: 32,
-                                  child: SvgPicture.asset(
-                                    "assets/randomperson.svg",
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                          const SizedBox(width: 20),
-                          Expanded(
-                            child: Text(
-                              chatBloc.cachedMessage[index].content,
-                              style: TextStyle(fontSize: 18),
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  },
-                )),
+                Expanded(child: ListView.builder(itemCount: chatBloc.cachedMessage.length, itemBuilder: (context,index) {
+                  
+                },)),
                 Container(
-                  height: 100,
+                  height: 120,
                   padding: const EdgeInsets.all(16),
                   child: ListView(
                     scrollDirection: Axis.horizontal,
@@ -108,12 +63,12 @@ class _ChatPageState extends State<ChatPage> {
                     color: Colors.white.withOpacity(0.1),
                     borderRadius: BorderRadius.circular(6),
                   ),
-                  child: Row(
+                  child:  Row(
                     children: [
                       Expanded(
                         child: TextField(
                           controller: controller,
-                          cursorColor: Colors.white,
+                          cursorColor:  Colors.white,
                           decoration: const InputDecoration(
                               border: OutlineInputBorder(
                                   borderSide: BorderSide.none),
@@ -125,17 +80,17 @@ class _ChatPageState extends State<ChatPage> {
                         width: 12,
                       ),
                       InkWell(
-                          onTap: () {
-                            if (controller.text.isNotEmpty) {
-                              String text = controller.text;
-                              controller.clear();
-                              chatBloc.add(ChatNewPromptEvent(prompt: text));
-                            }
-                          },
+                      onTap: () {
+                        if(controller.text.isNotEmpty) {
+                          chatBloc.add(
+                            ChatNewPromptEvent(prompt: controller.text)
+                          );
+                        }
+                      },
                           child: Icon(
-                            Icons.send_rounded,
-                            color: Colors.white,
-                          )),
+                        Icons.send_rounded,
+                        color: Colors.white,
+                      )),
                     ],
                   ),
                 ),
@@ -171,23 +126,16 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Widget promptContainer(String text) {
-    return InkWell(
-      onTap: () {
-        if(controller.text.isEmpty) {
-          controller.text = text;
-        }
-      },
-      child: Container(
-        margin: const EdgeInsets.only(right: 8),
-        width: 200,
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.white.withOpacity(0.5), width: 1.0),
-          color: Colors.white.withOpacity(0.05),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Text(text),
+    return Container(
+      margin: const EdgeInsets.only(right: 8),
+      width: 200,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.white.withOpacity(0.5), width: 1.0),
+        color: Colors.white.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(8),
       ),
+      child: Text(text),
     );
   }
 }

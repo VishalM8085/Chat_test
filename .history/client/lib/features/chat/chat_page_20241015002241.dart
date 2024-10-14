@@ -2,7 +2,6 @@ import 'package:client/design/app_colors.dart';
 import 'package:client/features/chat/bloc/chat_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -54,18 +53,20 @@ class _ChatPageState extends State<ChatPage> {
                               ? Container(
                                   height: 32,
                                   width: 32,
-                                  child: SvgPicture.asset(
-                                    "assets/chatgpt.svg",
-                                    fit: BoxFit.cover,
-                                  ),
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          image:
+                                              AssetImage("assets/chatgpt.svg"),
+                                          fit: BoxFit.cover)),
                                 )
                               : Container(
                                   height: 32,
                                   width: 32,
-                                  child: SvgPicture.asset(
-                                    "assets/randomperson.svg",
-                                    fit: BoxFit.cover,
-                                  ),
+                                  decoration: const BoxDecoration(
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                              "assets/randomperson.svg"),
+                                          fit: BoxFit.cover)),
                                 ),
                           const SizedBox(width: 20),
                           Expanded(
@@ -80,7 +81,7 @@ class _ChatPageState extends State<ChatPage> {
                   },
                 )),
                 Container(
-                  height: 100,
+                  height: 80,
                   padding: const EdgeInsets.all(16),
                   child: ListView(
                     scrollDirection: Axis.horizontal,
@@ -129,7 +130,8 @@ class _ChatPageState extends State<ChatPage> {
                             if (controller.text.isNotEmpty) {
                               String text = controller.text;
                               controller.clear();
-                              chatBloc.add(ChatNewPromptEvent(prompt: text));
+                              chatBloc.add(
+                                  ChatNewPromptEvent(prompt: text));
                             }
                           },
                           child: Icon(
@@ -171,23 +173,16 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Widget promptContainer(String text) {
-    return InkWell(
-      onTap: () {
-        if(controller.text.isEmpty) {
-          controller.text = text;
-        }
-      },
-      child: Container(
-        margin: const EdgeInsets.only(right: 8),
-        width: 200,
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.white.withOpacity(0.5), width: 1.0),
-          color: Colors.white.withOpacity(0.05),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Text(text),
+    return Container(
+      margin: const EdgeInsets.only(right: 8),
+      width: 200,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.white.withOpacity(0.5), width: 1.0),
+        color: Colors.white.withOpacity(0.05),
+        borderRadius: BorderRadius.circular(8),
       ),
+      child: Text(text),
     );
   }
 }

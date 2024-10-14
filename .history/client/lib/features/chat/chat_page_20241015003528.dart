@@ -173,9 +173,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget promptContainer(String text) {
     return InkWell(
       onTap: () {
-        if(controller.text.isEmpty) {
-          controller.text = text;
-        }
+        
       },
       child: Container(
         margin: const EdgeInsets.only(right: 8),

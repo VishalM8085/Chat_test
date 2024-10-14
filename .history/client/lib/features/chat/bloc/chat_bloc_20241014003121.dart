@@ -33,10 +33,11 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
       cachedMessage.add(ChatMessageModel(role: 'assistant', content: ""));
       _subscription?.cancel();
       _subscription = getChatGptResponseRepo(cachedMessage).listen((response) {
+        
         for (String line in response.body.split('\n')) {
           String jsonDataString = line.replaceFirst("data: ", "");
           Map<String, dynamic> data = jsonDecode(jsonDataString.trim());
-
+          
           add(ChatNewContentGeneratedEvent(content: data['data']));
         }
       });
@@ -52,7 +53,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     String content = event.content;
     cachedMessage.last = ChatMessageModel(
         role: 'assistant', content: modelMessage.content + content);
-    
+    print(cachedMessage.last.content);
     emit(ChatNewMessageGeneratedState());
   }
 }

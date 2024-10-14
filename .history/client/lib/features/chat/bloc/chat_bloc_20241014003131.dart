@@ -52,7 +52,7 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
     String content = event.content;
     cachedMessage.last = ChatMessageModel(
         role: 'assistant', content: modelMessage.content + content);
-    
+    print(cachedMessage.last.content);
     emit(ChatNewMessageGeneratedState());
   }
 }
