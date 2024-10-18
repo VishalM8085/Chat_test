@@ -181,26 +181,3 @@ class ChatBloc extends Bloc<ChatEvent, ChatState> {
 //   emit(ChatNewMessageGeneratedState());
 // Emit a new state:
 // After updating the last message in cachedMessage, this line emits a new state, ChatNewMessageGeneratedState, which indicates that a new message has been successfully generated and added to the chat.
-
-// @Override
-// Future<void> close() {
-//   _subscription?.cancel();
-//   return super.close();
-// }
-// Explanation
-// @override:
-
-// This annotation indicates that the close method is overriding a method defined in the superclass (in this case, the Bloc class). It informs the Dart compiler and other developers that this method is meant to replace a method in the parent class.
-// Future<void> close():
-
-// This line defines the close method.
-// The method is asynchronous and returns a Future<void>, meaning it does not return any value and may perform asynchronous operations.
-// _subscription?.cancel();:
-
-// This line attempts to cancel the _subscription if it is not null.
-// The ? operator (null-aware operator) checks if _subscription is not null before calling the cancel method. If _subscription is null, this line does nothing, preventing a potential null reference error.
-// _subscription is presumably a StreamSubscription<http.Response> used to manage the subscription to a stream of HTTP responses. Canceling the subscription ensures that no further events are listened to or processed when the ChatBloc is closed, preventing memory leaks and unnecessary processing.
-// return super.close();:
-
-// This line calls the close method of the superclass (Bloc).
-// By calling super.close(), it ensures that any cleanup or additional logic defined in the parent class's close method is executed. This might include finalizing state management, disposing of resources, or any other necessary cleanup operations defined in the Bloc class.

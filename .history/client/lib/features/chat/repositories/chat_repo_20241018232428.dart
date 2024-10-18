@@ -103,7 +103,3 @@ Stream<http.Response> getChatGptResponseRepo(
 // Tries to decode the line into a JSON object using jsonDecode.
 // If successful, the JSON object is encoded back into a string (jsonEncode(data)) and returned in an http.Response object along with the status code and headers.
 // If an error occurs during JSON decoding, it catches the exception and yields an error response with status code 500.
-// .transform(const LineSplitter())
-// LineSplitter(): This splits the decoded string into lines. In most cases, servers that use text/event-stream send data line by line. So the LineSplitter() will split the data every time a new line is encountered.
-
-// But why this, if we're getting words?: If the server sends words as part of single lines, each line might contain only a single word (or sometimes a few words). The LineSplitter() breaks the stream based on line breaks (\n or \r\n), so if the server sends words separated by line breaks, each "line" could correspond to a word.

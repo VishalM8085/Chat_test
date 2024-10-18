@@ -93,17 +93,3 @@ Stream<http.Response> getChatGptResponseRepo(
 // .map((line) {...}): The map function takes each line (which is not empty) and applies a transformation.
 // if (line.startsWith('data: ')): This checks if the line starts with the prefix data: , which is common in event-stream responses (the data of each event is often prefixed by data: ).
 // line = line.substring(6): If the line starts with data: , this removes that prefix. The substring(6) takes everything after the first 6 characters (which skips over data: ). This ensures that you’re left with the actual content of the line, without the prefix.
-// try {
-//   Map<String, dynamic> data = jsonDecode(line);
-//   return http.Response(jsonEncode(data), response.statusCode, headers: response.headers);
-// } catch (e) {
-//   print('Error decoding JSON: $e');
-//   return http.Response('Error decoding JSON', 500);
-// }
-// Tries to decode the line into a JSON object using jsonDecode.
-// If successful, the JSON object is encoded back into a string (jsonEncode(data)) and returned in an http.Response object along with the status code and headers.
-// If an error occurs during JSON decoding, it catches the exception and yields an error response with status code 500.
-// .transform(const LineSplitter())
-// LineSplitter(): This splits the decoded string into lines. In most cases, servers that use text/event-stream send data line by line. So the LineSplitter() will split the data every time a new line is encountered.
-
-// But why this, if we're getting words?: If the server sends words as part of single lines, each line might contain only a single word (or sometimes a few words). The LineSplitter() breaks the stream based on line breaks (\n or \r\n), so if the server sends words separated by line breaks, each "line" could correspond to a word.
