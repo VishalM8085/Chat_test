@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "src/index.ts",     // Entry point for your TypeScript API
+        "use": "@vercel/node",
+        "config": { "includeFiles": ["src/**/*"] }  // Include all source files
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "src/index.ts"
+      }
+    ]
+  }
+  
