@@ -20,8 +20,7 @@
 - **Hosted API**: The application integrates a **hosted backend API** for fast and reliable response times, eliminating the need for backend setup.
 - **Lightweight and Fast**: Optimized for performance, ensuring minimal loading times and efficient resource use.
 
-## API Overview 📡  
-The ChatFlow AI backend is a well-crafted API built with **Node.js**, **Express.js**, and **TypeScript**. This architecture allows seamless communication with the **OpenAI API** to handle POST requests, facilitating quick and intelligent response generation. 
+
 
 
 ## Screenshots 📸
@@ -48,9 +47,19 @@ The ChatFlow AI backend is a well-crafted API built with **Node.js**, **Express.
 
 https://github.com/user-attachments/assets/031b53f9-75e5-4750-898d-f21a022e9af1
 
+[Click here to watch the video](https://github.com/user-attachments/assets/031b53f9-75e5-4750-898d-f21a022e9af1) if it doesn't display above.
 
 
 
+## Getting Started 🚀
+
+To get started with the Culinary Haven App, you have two options:
+
+1. **Download from the Amazon Appstore:**
+   - [Download from Amazon Appstore](https://www.amazon.com/gp/product/B0D7M91WND)
+
+2. **Download the APK directly:**
+   - [Download the latest version of the app](https://github.com/VISHALGUPTA100803/ChatFlow-AI/releases)
 
 
 
