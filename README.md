@@ -46,10 +46,8 @@ The ChatFlow AI backend is a well-crafted API built with **Node.js**, **Express.
 
 ## Video 🎥
 
-<video width="600" controls>
-  <source src="https://github.com/user-attachments/assets/031b53f9-75e5-4750-898d-f21a022e9af1" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+![Demo Video](https://github.com/user-attachments/assets/031b53f9-75e5-4750-898d-f21a022e9af1)
+
 
 
 
