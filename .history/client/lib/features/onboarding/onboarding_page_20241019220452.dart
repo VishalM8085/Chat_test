@@ -65,7 +65,7 @@ class OnboardingPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "Try ChatFlowAI",
+                          "Try ChatGPT",
                           style: TextStyle(
                             fontSize: 18,
                             color: AppColors.pinkBgColor,
