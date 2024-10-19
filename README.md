@@ -1,5 +1,5 @@
-# ChatFlow AI 🤖💬  
-**ChatFlow AI** is a cutting-edge chatbot application built with a responsive UI and integrated with advanced AI capabilities for real-time, interactive conversations. Powered by **OpenAI's GPT model**, this application provides intelligent, context-driven responses, ensuring a seamless and engaging user experience.
+# ChatFlowAI 🤖💬  
+**ChatFlowAI** is a cutting-edge chatbot application built with a responsive UI and integrated with advanced AI capabilities for real-time, interactive conversations. Powered by **OpenAI's GPT model**, this application provides intelligent, context-driven responses, ensuring a seamless and engaging user experience.
 
 ## Technologies Used 🛠️  
 - **Flutter** & **Dart**: 🌐 Delivering a cross-platform UI with a single codebase, ensuring responsiveness and fluid interactions across Android and iOS.
@@ -53,7 +53,7 @@ https://github.com/user-attachments/assets/031b53f9-75e5-4750-898d-f21a022e9af1
 
 ## Getting Started 🚀
 
-To get started with the Culinary Haven App, you have two options:
+To get started with the ChatFlowAI App, you have two options:
 
 1. **Download from the Amazon Appstore:**
    - [Download from Amazon Appstore](https://www.amazon.com/gp/product/B0D7M91WND)
