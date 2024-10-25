@@ -56,7 +56,7 @@ https://github.com/user-attachments/assets/031b53f9-75e5-4750-898d-f21a022e9af1
 To get started with the ChatFlowAI App, you have two options:
 
 1. **Download from the Amazon Appstore:**
-   - [Download from Amazon Appstore](https://www.amazon.com/gp/product/B0D7M91WND)
+   - [Download from Amazon Appstore](https://www.amazon.com/gp/product/B0DK9ZN5J7)
 
 2. **Download the APK directly:**
    - [Download the latest version of the app](https://github.com/VISHALGUPTA100803/ChatFlow-AI/releases)
